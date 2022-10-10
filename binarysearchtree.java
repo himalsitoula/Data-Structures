@@ -3,6 +3,10 @@ package lab4;
 
 
 public class binarysearchtree {
+	
+	node root;
+	public node leaf=null;
+
 	class node{
 		int item;
 		node right;
@@ -14,11 +18,13 @@ public class binarysearchtree {
 			
 		}
 	}
-	node root;
+	
+	
 	public binarysearchtree() {
 		root=null;
 	}
-	public node leaf=null;
+	
+	
 	public void search(node n,int key) {
 		if (n.left==null && n.right==null) {
 			if(n.item==key)
@@ -40,6 +46,7 @@ public class binarysearchtree {
 		}
 	
 	}
+
 	
 	public void deleteleaf(node n,int key) {
 		if (n.left==null && n.right==null) {
@@ -58,6 +65,8 @@ public class binarysearchtree {
 			
 		}
 	}
+
+
 	public void delchild(node n, int key ) {
 		if (n.left==null && n.right!=null||n.left!=null && n.right==null) {
 			if(n.item==key)
@@ -75,6 +84,7 @@ public class binarysearchtree {
 			
 		}
 	}
+
 	
 	static void postorder(node current){
 		if (current!=null) {
@@ -84,6 +94,8 @@ public class binarysearchtree {
             System.out.println(current.item + " ");
 		}
     }
+
+
 	public void insert(node n , int val) {
 		if (root==null) {
 			root=new node(val);
@@ -105,16 +117,10 @@ public class binarysearchtree {
 				//System.out.println(val+"insert to the right");
 				n.right=new node(val);
 			}
-		}
-		
+		}	
 	
 	}
 	
-	
-	
-	
-	
-	 
 
 	public static void main(String[] args) {
 		binarysearchtree t = new binarysearchtree();
