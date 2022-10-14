@@ -26,24 +26,27 @@ public class binarysearchtree {
 	
 	
 	public void search(node n,int key) {
-		if (n.left==null && n.right==null) {
-			if(n.item==key)
+		if (n==null) {
+			return;		
+		}
+
+		if(n.item==key){
 				System.out.println(key+" Found ");
-			else 
-				System.out.println(key+"not Found");
+				return;
+		}
+
+		if(n.item>key){
+			 search(n.left,key);
 			
 		}
-		else if(n.item>key){
-			search(n.left,key);
-		}
 		else if(n.item<key) {
+		
 			search(n.right,key);
 			
 		}
-		else {
-			System.out.println(key+" Not Found ");
+		else System.out.println(key+" Not Found ");
 			
-		}
+		
 	
 	}
 
@@ -129,6 +132,8 @@ public class binarysearchtree {
 		t.insert(t.root, 12);
 		t.insert(t.root, 13);
 		t.insert(t.root, 17);
+		t.search(t.root,11);
+		t.search(t.root,34);
 		binarysearchtree.postorder(t.root);
 		
 	}
